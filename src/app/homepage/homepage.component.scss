@@ -1,0 +1,46 @@
+
+
+
+.wrapper {
+  
+  min-height: 100vh;
+  background-size: 100%;
+  //background-repeat: no-repeat;
+  background-attachment: fixed;
+  //background-image: url("https://images4.alphacoders.com/723/723860.jpg");
+  background-color: black;
+
+ 
+}
+
+.wrapper > * {
+  padding: 20px;
+}
+
+
+ 
+
+ h1{
+    color:white;
+   text-align: center;
+   font-family: 'Sofia';
+   font-size: 82px;
+   
+  
+
+  
+ }
+
+ #buttonDiv{
+
+  text-align: center;
+  
+
+ }
+ #button{
+
+  font-size: 2vh;
+  color:black;
+  padding: 14px 40px;
+
+ }
