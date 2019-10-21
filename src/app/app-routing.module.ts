@@ -2,6 +2,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { DetailsComponent } from './details/details.component';
 import { LoginComponent } from './login/login.component';
 import { ProductsComponent } from './products/products.component';
+import { CartComponent } from './cart/cart.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -30,6 +31,10 @@ const routes: Routes = [{
 {
   path: 'confirmation',
   component: ConfirmationComponent
+},
+{
+  path: 'cart',
+  component: CartComponent
 }
 
 
