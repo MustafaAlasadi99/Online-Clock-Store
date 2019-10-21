@@ -81,10 +81,13 @@ export class ProductsComponent implements OnInit {
       let index: number = -1;
       for (var i = 0; i < cart.length; i++) {
         let item: Item = JSON.parse(cart[i]);
-        console.log(item.product.id); const peopleArray = Object.values(product)
-        if (item.product.id == id) {    // potential issue here
+        console.log(product); 
+        if ( item.product.id == id ) {    // potential issue here// 
+          
+        
           index = i;
           break;
+          
         }
       }
       if (index == -1) {

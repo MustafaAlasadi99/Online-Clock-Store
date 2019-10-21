@@ -6,7 +6,7 @@ import { Item } from '../item.entity';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit {
+export class CartComponent  implements OnInit {
 
 
   private items: Item[] = [];
