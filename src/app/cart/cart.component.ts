@@ -9,9 +9,9 @@ import { Item } from '../item.entity';
 export class CartComponent  implements OnInit {
 
 
-  private items: Item[] = [];
-  private items2: Item[] = [];
-	private total: number = 0;
+  public items: Item[] = [];
+  public items2: Item[] = [];
+	public total: number = 0;
 
   constructor() { }
 
