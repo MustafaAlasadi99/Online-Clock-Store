@@ -18,7 +18,7 @@ export class DataService {
   }
 
 
-  getProductById(Product_id) {
+   getProductById(Product_id) {
     return this.http.get('https://product-service1.herokuapp.com/id/' + Product_id) ;
   }
 

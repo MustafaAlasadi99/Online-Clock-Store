@@ -15,6 +15,8 @@ export class ProductsComponent implements OnInit {
   products$: Object;
 
   private items: Item[] = [];
+  private items2: Item[] = [];
+  private items3: Item[] = [];
 	private total: number = 0;
 
  currentUrl: string;
@@ -79,17 +81,40 @@ export class ProductsComponent implements OnInit {
     else {
       let cart: any = JSON.parse(localStorage.getItem('cart'));
       let index: number = -1;
+
+      /*
       for (var i = 0; i < cart.length; i++) {
-        let item: Item = JSON.parse(cart[i]);
-        console.log(product); 
-        if ( item.product.id == id ) {    // potential issue here// 
-          
         
+        let item: Item  = JSON.parse(cart[i]);
+        //console.log(product ); 
+        if ( item.product.id == id )    // potential issue here// 
+         {    
           index = i;
           break;
-          
         }
       }
+      */
+
+     this.items2 = [];  // start new function, dumping cart content into new array called items2
+
+     for (var i = 0; i < cart.length; i++) {//
+      let item2 = JSON.parse(cart[i]);
+      this.items2.push({
+        product: item2.product,
+        quantity: item2.quantity
+      });
+      if ( item2.product.id == id )   
+      {    
+       index = i;
+       break;
+     }
+      
+    }                                               //end new function
+
+
+
+
+
       if (index == -1) {
         cart.push(JSON.stringify(item));
         localStorage.setItem('cart', JSON.stringify(cart));
@@ -106,21 +131,45 @@ export class ProductsComponent implements OnInit {
 
   remove(id: string): void {
 		let cart: any = JSON.parse(localStorage.getItem('cart'));
-		let index: number = -1;
+    let index: number = -1;
+    
+
+/*  old function
 		for (var i = 0; i < cart.length; i++) {
 			let item: Item = JSON.parse(cart[i]);
 			if (item.product.id == id) {
 				cart.splice(i, 1);
 				break;
 			}
-		}
+    }
+    
+*/
+
+
+
+this.items3 = [];  // start new function, dumping cart content into new array called items3
+
+for (var i = 0; i < cart.length; i++) {//
+ let item3 = JSON.parse(cart[i]);
+ this.items3.push({
+   product: item3.product,
+   quantity: item3.quantity
+ });
+
+ if (item3.product.id == id) {
+  cart.splice(i, 1);
+  break;
+}
+ 
+}      // end new function
+
+
 		localStorage.setItem("cart", JSON.stringify(cart));
 		this.loadCart();
 	}
 
 
 
- 
-  
+
 
 }

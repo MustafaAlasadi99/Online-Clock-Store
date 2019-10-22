@@ -10,6 +10,7 @@ export class CartComponent  implements OnInit {
 
 
   private items: Item[] = [];
+  private items2: Item[] = [];
 	private total: number = 0;
 
   constructor() { }
@@ -41,14 +42,41 @@ export class CartComponent  implements OnInit {
 
   remove(id: string): void {
 		let cart: any = JSON.parse(localStorage.getItem('cart'));
-		let index: number = -1;
+    let index: number = -1;
+    
+    /*
 		for (var i = 0; i < cart.length; i++) {
 			let item: Item = JSON.parse(cart[i]);
 			if (item.product.id == id) {
 				cart.splice(i, 1);
 				break;
 			}
-		}
+    }
+    */
+
+
+   this.items2 = [];  // start new function, dumping cart content into new array called items3
+
+   for (var i = 0; i < cart.length; i++) {//
+    let item2 = JSON.parse(cart[i]);
+    this.items2.push({
+      product: item2.product,
+      quantity: item2.quantity
+    });
+   
+    if (item2.product.id == id) {
+     cart.splice(i, 1);
+     break;
+   }
+    
+   }      // end new function
+    
+
+
+
+
+
+
 		localStorage.setItem("cart", JSON.stringify(cart));
 		this.loadCart();
 	}
