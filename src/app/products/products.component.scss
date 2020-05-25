@@ -21,10 +21,10 @@ h1{
  } 
 
 
-.wrapper {
+.wrapper { 
   
   min-height: 100vh;
-  //background-image: url("https://images.unsplash.com/photo-1535332371349-a5d229f49cb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+
   background-color: white   ;
 
   color: #272727;
@@ -74,6 +74,7 @@ img {
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: transparent;
+  
 }
 
 .btn:hover {
@@ -91,11 +92,8 @@ img {
 .cards_item {
   display: flex;
   padding: 1rem;
-
  
-height:1%;
-
-                // Note: Setting a hight property here will remove white space undernedth details button
+  height:1%;
 
 
 }
@@ -125,10 +123,8 @@ height:1%;
 
 .card_content {
   padding: 1rem;
-  background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
-
  
-  
+  background: linear-gradient(to bottom left, #1F5797 40%, #4C43D1 100%);
 }
 
 .card_title {
@@ -136,21 +132,29 @@ height:1%;
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 1px;
-  text-transform: capitalize;
+  //text-transform: capitalize;
   margin: 0px;
 }
 
 .card_text {
-  color: #ffffff;
-  font-size: 0.875rem;
+  color: lightgreen;   //#ffffff
+  font-size: 1.1rem;
   line-height: 1.5;
-  margin-bottom: 1.25rem;    
-  font-weight: 400;
+  margin-bottom: 1.00rem; 
+  margin-top: 0.5rem;
+  font-weight: 700;
+  text-align: center;
+ 
+
 }
 
-.card_image{
+.loading{
 
-    
-  
-  
+
 }
+
+
+
+  
+
+

@@ -1,8 +1,10 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit,ViewChild ,OnChanges,ChangeDetectorRef } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import {filter} from 'rxjs/operators';
+import { Observable, Subscriber } from 'rxjs';
+import { tap, map, filter } from 'rxjs/operators';
 import { DataService } from '../data.service';
-import { Observable } from 'rxjs';
+
+import { from } from 'rxjs';
 import { Item } from '../item.entity';
 
 @Component({
@@ -12,12 +14,22 @@ import { Item } from '../item.entity';
 })
 export class ProductsComponent implements OnInit {
 
-  products$: Object;
+ 
+  cartno :  number;  
+
+  AddButton : string;
+  
+  HideSpinner;
+
+  products$ :  Object;
 
   private items: Item[] = [];
   private items2: Item[] = [];
   private items3: Item[] = [];
-	private total: number = 0;
+  private total: number = 0;
+  
+
+  clicked = false;
 
  currentUrl: string;
  constructor(private router: Router, private data: DataService) {
@@ -25,28 +37,52 @@ export class ProductsComponent implements OnInit {
  }
 
   ngOnInit() {
+    this.HideSpinner=false;
+
+    /*
+    this.data.getAllProducts().subscribe(
+      data => this.products$ = data  
+    );
+*/
+
 
     this.data.getAllProducts().subscribe(
-      data => this.products$ = data
-    );
+      response => {
+           this.products$ = response;
+      },
+      err => {
+           console.log(err);
+           //closeLoadingBar();
+      },
+      () => { console.log("Complete");
+      this.HideSpinner=true;
+      }
+ );
+
+
+
+
 
     this.loadCart();
 
-
     
-
+   
+ 
 
   }
 
 
 
-  loadCart() {
+  loadCart( ) {
+
+    let cart = JSON.parse(localStorage.getItem('cart'));
+
     this.total = 0;
     this.items = [];
 
     
-    let cart = JSON.parse(localStorage.getItem('cart'));
-
+   
+    this.cartno=0;
     if ( (localStorage.getItem('cart') != null)) {  // if cart is not empty then proceed
     for (var i = 0; i < cart.length; i++) {//
       let item = JSON.parse(cart[i]);
@@ -54,16 +90,26 @@ export class ProductsComponent implements OnInit {
         product: item.product,
         quantity: item.quantity
       });
+      this.cartno+=item.quantity;
       this.total += item.product.price * item.quantity;
     }//
   }
     
+
+
+
+
+
+
+
+
   }
 
 
 
   AddToCart(name, product,id) {
     
+    this.AddButton="false";
 
 
     var item: Item = {
@@ -82,21 +128,10 @@ export class ProductsComponent implements OnInit {
       let cart: any = JSON.parse(localStorage.getItem('cart'));
       let index: number = -1;
 
-      /*
-      for (var i = 0; i < cart.length; i++) {
-        
-        let item: Item  = JSON.parse(cart[i]);
-        //console.log(product ); 
-        if ( item.product.id == id )    // potential issue here// 
-         {    
-          index = i;
-          break;
-        }
-      }
-      */
 
      this.items2 = [];  // start new function, dumping cart content into new array called items2
 
+     
      for (var i = 0; i < cart.length; i++) {//
       let item2 = JSON.parse(cart[i]);
       this.items2.push({
@@ -120,30 +155,22 @@ export class ProductsComponent implements OnInit {
         localStorage.setItem('cart', JSON.stringify(cart));
       } else {
         let item: Item = JSON.parse(cart[index]);
-        item.quantity += 1;
+        if(item.quantity<5)
+            item.quantity += 1;
+
         cart[index] = JSON.stringify(item);
         localStorage.setItem("cart", JSON.stringify(cart));
       }
     }
 
     this.loadCart();
+    
   }
 
   remove(id: string): void {
 		let cart: any = JSON.parse(localStorage.getItem('cart'));
     let index: number = -1;
     
-
-/*  old function
-		for (var i = 0; i < cart.length; i++) {
-			let item: Item = JSON.parse(cart[i]);
-			if (item.product.id == id) {
-				cart.splice(i, 1);
-				break;
-			}
-    }
-    
-*/
 
 
 
@@ -168,6 +195,16 @@ for (var i = 0; i < cart.length; i++) {//
 		this.loadCart();
 	}
 
+
+  AddToCartButton(id){
+
+    document.getElementById(id).innerHTML = "Added To Cart";
+
+
+    document.getElementById(id).style.color = "yellow";
+
+    
+  }
 
 
 

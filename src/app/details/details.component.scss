@@ -1,19 +1,70 @@
 
 
   #page_container{
-    min-height: 100vh;
-    background-color: white;
 
-
-     // text-align: center;
-
+  background-color: white;
   max-width: 1000px;
-  margin: 0 auto;     
+  margin: 0 auto;    
+  margin-top:2%;
+
   }
 
 
 .rectangle_container{
-
   margin-top:2%;
-  
 }
+
+h1{
+
+  //text-align: center;
+  color:white ;
+  //background-color: black;  
+  margin-bottom: 0;
+  padding: 0%;
+  margin: 0 auto;
+
+  }
+
+ .navbar{
+   background-color: black;
+   width: 100%;
+   
+ } 
+
+
+
+ @media (min-width: 768px){
+ #imgContainer {
+     -ms-flex: 0 0 40%;
+     flex: 0 0 40%;
+     max-width: 40%;
+ }
+
+}
+
+@media (min-width: 768px){
+  #txtContainer {
+      -ms-flex: 0 0 60%;
+      flex: 0 0 60%;
+      max-width: 60%;
+  }
+ 
+ }
+
+ .price{
+
+  font-size: 1.7em;;
+ }
+
+ .desc{
+
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+ }
+
+ addBTN{
+  font-weight: 1200;
+
+ }

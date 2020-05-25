@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,ElementRef, OnInit } from '@angular/core';
 import { Item } from '../item.entity';
 
 @Component({
@@ -11,19 +11,86 @@ export class CartComponent  implements OnInit {
 
   public items: Item[] = [];
   public items2: Item[] = [];
-	public total: number = 0;
+  public total: number = 0;
+  //selected$ :  any;
+  //D: string;
+  
+  HideCart;
+  empty_message;
+
+
+
+  
+
+
+
+
 
   constructor() { }
 
   ngOnInit() {
+    
+    let cart = JSON.parse(localStorage.getItem('cart'));
+
+    this.HideCart=true;
+    
+    if (cart.length>0)
+    {
+      this.HideCart=false;
+    }
+
+    this.empty_message=true;
+    if (cart.length==0)
+      this.empty_message=false;
+
+
     this.loadCart();
+
+    
+  
+
+    
+    
+
+    
   }
+
+  changed(e,value,id){
+    
+    console.log( value + "    " + id);
+    let cart: any = JSON.parse(localStorage.getItem('cart'));
+
+
+    this.items2 = [];  
+
+    for (var i = 0; i < cart.length; i++) {//
+     let item2 = JSON.parse(cart[i]);
+     this.items2.push({
+       product: item2.product,
+       quantity: item2.quantity
+     });
+    
+     if (item2.product.id == id) { //update quantity
+      let item: Item = JSON.parse(cart[i]);
+        item.quantity = value;
+        cart[i] = JSON.stringify(item);
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+     
+    }  
+
+    this.loadCart();
+
+}
+
+
+
 
 
   loadCart() {
     this.total = 0;
     this.items = [];
-
+    
     
     let cart = JSON.parse(localStorage.getItem('cart'));
 
@@ -74,7 +141,8 @@ export class CartComponent  implements OnInit {
 
 
 
-
+   if(cart.length==0)
+    location.reload();
 
 
 		localStorage.setItem("cart", JSON.stringify(cart));
@@ -82,6 +150,15 @@ export class CartComponent  implements OnInit {
 	}
 
 
+pay(){
 
+  window.location.href = 'https://www.paypal.com/us/signin';
 
 }
+
+ 
+ 
+ 
+
+}
+
