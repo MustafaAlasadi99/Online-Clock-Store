@@ -3,7 +3,7 @@
 
 <div class= "navbar">
 
-     <h1>  Drone Store   </h1> 
+     <h1>  Web Store   </h1> 
 
 </div>
 
@@ -37,7 +37,7 @@
         <ul class="cards" >
           <li  class="cards_item" *ngFor="let product of products$" >
             <div class="card" >
-              <div  class="card_image"><img style="width:500; height: 300; " src="{{product.image.imgurl}} "></div>  
+              <div  class="card_image"><img class="Cimg"  src="{{product.image.imgurl}} "></div>  
               <div class="card_content">
                 <h2  class="card_title">{{product.name.name}}</h2>
                 <p  class="card_text">${{product.price.price}}</p>

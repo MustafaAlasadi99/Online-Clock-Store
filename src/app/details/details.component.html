@@ -2,7 +2,7 @@
 
 <div class= "navbar">
 
-    <h1>  Drone Store   </h1> 
+    <h1>  Web Store   </h1> 
 
 </div>
 
@@ -16,65 +16,115 @@
 </button>
 
 
+<br><br><br>
 
 
-<div  id="page_container">
 
+<mat-card class="card">
 
 
   
-  <div  class="row wow fadeIn" style="margin-top: 1%; border: 1px ">
 
-    
-        <div id="imgContainer"  class="col-md-6 " style="  display: flex; align-items: center; ">  
-
-            <img *ngIf="product$" class="img-responsive" src="{{product$.image.imgurl}}" style="width: 95%; height:80%; margin:0 auto;  ">
-
-        </div>
-    
-
-  
-        <div id="txtContainer"  class="col-md-6 mb-4" style="  display: flex; align-items: center;  " > 
-
+    <mat-card-content>
         
-            <div class="p-4" style="text-align: left; ">
+            
+        
 
-                <div class="mb-3">
-                    <span  style="font-size:1.1em; font-weight: 700;  " class="badge purple mr-1">{{product$.name.name}}</span>
-                </div>
 
-                <p class="lead price" >
-                  <span>${{product$.price.price}}</span>
-                </p>
 
-                <p class="lead  font-weight-bold">Description</p>
 
-                <p>{{product$.description.description}}</p>
 
-                <form class="d-flex justify-content-left">
-                    
-                    
-                    <button style="font-size:1.7em; margin-top:1%;"  id="{{product$.id}}"  class="btn card_btn" (click)="AddToCart(product$.name.name,product$, product$.id ) "   (click)="AddToCartButton(product$.id); "  >Add To Cart
-                      <i class="fas fa-shopping-cart ml-1"></i>
-                    </button>
+<div class="row First_card" >
+    <div class="col-sm-4" style=" text-align: center;"  ><img src="{{product$.image.imgurl}}" class="responsive" width="150" height="90"></div>
+    <div class="col-sm-4" style="margin:auto;" >{{product$.name.name}}</div>
+    <div class="col-sm-4" style="margin:auto; text-align: center;" >Price: ${{product$.price.price}}</div>
+</div>
 
-                </form>
+    </mat-card-content>
 
-            </div>
-          
 
+</mat-card>
+
+
+
+
+
+
+<mat-card class="card">
+
+
+    <mat-card-title>Product Information:</mat-card-title>
+
+    <mat-card-content>
+       
+
+          <ul class="b" *ngFor="let post of product$.highlights.highlights; let i = index">
+
+            <li>{{ post }}</li>
+         
+          </ul>
+       
+    
+
+    </mat-card-content>
+
+
+</mat-card>
+
+
+
+
+<mat-card class="card">
+
+
+    <mat-card-title>Description:</mat-card-title>
+
+    <mat-card-content>
+        {{product$.description.description}}
+    </mat-card-content>
+
+
+</mat-card>
+
+
+
+<br>
+
+<div style="text-align: center;">
+<button class="addBt" mat-raised-button color="primary" id="{{product$.id}}"  (click)="AddToCart(product$.name.name,product$, product$.id ) " (click)="AddToCartButton(product$.id); ">Add To Cart</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+   
+    <mat-card class="card">
+        <mat-card-title>SPECS</mat-card-title>
+
+
+
+        <div class="row">
+            <div class="col-md-4 title">Contact Name: hello me</div>
+            <div class="col-md-4 title">Contact Email: e@gfmail.com</div>
+            <div class="col-md-4 title">Contact Phone: 8313213213</div>
         </div>
-      
-
-  </div>
-  
 
 
+    </mat-card>  
 
-
-
- </div>
-
+ {{product$.highlights.highlights[0]}}
+-->
 
 
  

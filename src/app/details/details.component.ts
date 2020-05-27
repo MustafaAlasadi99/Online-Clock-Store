@@ -3,6 +3,8 @@ import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { Item } from '../item.entity';
+import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
 
 @Component({
   selector: 'app-details',
@@ -57,13 +59,6 @@ export class DetailsComponent implements OnInit {
     }//
   }
     
-
-
-
-
-
-
-
 
   }
 

@@ -25,7 +25,7 @@ h1{
   
   min-height: 100vh;
 
-  background-color: white   ;
+  background-color: #20B2AA   ;
 
   color: #272727;
   font-family: 'Quicksand', serif;
@@ -153,6 +153,31 @@ img {
 
 }
 
+.card_image{
+  text-align: center;
+  //max-height: 200px;
+
+
+}
+
+.Cimg{
+  //max-height: 200px;;
+
+}
+
+@media only screen and (min-width: 900px) {
+  .Cimg {
+   max-height: 200px;
+   
+  }
+  .card{
+  
+  
+    width: 300px;
+  }
+  
+
+}
 
 
   

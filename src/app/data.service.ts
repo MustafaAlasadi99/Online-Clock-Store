@@ -14,18 +14,18 @@ export class DataService {
   }
 
   getAllProducts() {
-    return this.http.get('https://product-service1.herokuapp.com/getProducts' ) ;
+    return this.http.get('https://products-db1.herokuapp.com/GetAllProducts' ) ;
   }
 
 
    getProductById(Product_id) {
-    return this.http.get('https://product-service1.herokuapp.com/id/' + Product_id) ;
+    return this.http.get('https://products-db1.herokuapp.com/id/' + Product_id) ;
   }
 
 
   WakeUpHeroku() {
 
-    return this.http.get('https://product-service1.herokuapp.com/getProducts' ) ;
+    return this.http.get('https://products-db1.herokuapp.com/GetAllProducts' ) ;
 
 
 }

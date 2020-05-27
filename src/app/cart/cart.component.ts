@@ -1,5 +1,9 @@
-import { Component,ElementRef, OnInit } from '@angular/core';
+import { Component,ElementRef, OnInit, Input, HostListener } from '@angular/core';
 import { Item } from '../item.entity';
+import {MatDialog} from '@angular/material/dialog';
+
+
+
 
 @Component({
   selector: 'app-cart',
@@ -12,31 +16,42 @@ export class CartComponent  implements OnInit {
   public items: Item[] = [];
   public items2: Item[] = [];
   public total: number = 0;
-  //selected$ :  any;
-  //D: string;
+
   
   HideCart;
+  HideButton;
   empty_message;
 
 
+  constructor(public dialog: MatDialog ) { }
+
+
+  openDialog() {
+    this.dialog.open(DialogElementsExampleDialog);
+  }
+
+
+  @Input() amount;
+  @Input() description;
 
   
 
+  confirmation: any;
+  loading = false;
 
 
-
-
-  constructor() { }
 
   ngOnInit() {
     
     let cart = JSON.parse(localStorage.getItem('cart'));
 
     this.HideCart=true;
+    this.HideButton=true;
     
     if (cart.length>0)
     {
       this.HideCart=false;
+      this.HideButton=false;
     }
 
     this.empty_message=true;
@@ -46,14 +61,11 @@ export class CartComponent  implements OnInit {
 
     this.loadCart();
 
-    
-  
-
-    
-    
-
-    
+   
   }
+
+
+  
 
   changed(e,value,id){
     
@@ -150,15 +162,11 @@ export class CartComponent  implements OnInit {
 	}
 
 
-pay(){
-
-  window.location.href = 'https://www.paypal.com/us/signin';
-
 }
 
- 
- 
- 
-
-}
+@Component({
+  selector: 'dialog-elements-example-dialog',
+  templateUrl: 'dialog.html',
+})
+export class DialogElementsExampleDialog {}
 

@@ -1,9 +1,14 @@
 
 <div class= "navbar">
 
-    <h1 >Cart Content</h1>
+    <h1 >Web Store</h1>
 
 </div>
+
+
+<div id="wrapper">
+
+
 
 <button style="float: right; margin-right:1%; margin-top:0.5%;" routerLink="/products" mat-raised-button color="primary"  matBadgePosition="before" matBadgeColor="accent">
     Products
@@ -74,14 +79,23 @@
 
     <div style="text-align: center; font-size:1.5em; ">
 
-        <button (click)="pay()" style="font-size:0.7em; " mat-stroked-button color="primary">Pay With PayPal</button>
+      
     </div>
  </div>
+
+ <div id="Cbutton">
+ <button mat-fab color="accent" [hidden]="HideButton" mat-button (click)="openDialog()">Pay</button>
+</div>
+
+<hr>
 
 
  
 
 
+ 
+
+</div>
 
  
 
