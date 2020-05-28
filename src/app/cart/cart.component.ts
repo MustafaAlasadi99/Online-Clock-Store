@@ -1,7 +1,7 @@
 import { Component,ElementRef, OnInit, Input, HostListener } from '@angular/core';
 import { Item } from '../item.entity';
 import {MatDialog} from '@angular/material/dialog';
-import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+//import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 
 
 
