@@ -25,6 +25,9 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { environment } from '../environments/environment';
 import {MatCardModule} from '@angular/material/card';
 
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +53,13 @@ import {MatCardModule} from '@angular/material/card';
     MatProgressSpinnerModule,
     MatDialogModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatGoogleMapsAutocompleteModule,
+    
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDbeGVNOdRpyfQP2TcP-gFl9gCmnfShlbk',
+      libraries: ['places']
+    })
     
   ],
 

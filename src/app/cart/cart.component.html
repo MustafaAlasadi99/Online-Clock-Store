@@ -1,7 +1,6 @@
+<div class="navbar">
 
-<div class= "navbar">
-
-    <h1 >Web Store</h1>
+  <h1>Cart Content</h1>
 
 </div>
 
@@ -10,67 +9,71 @@
 
 
 
-<button style="float: right; margin-right:1%; margin-top:0.5%;" routerLink="/products" mat-raised-button color="primary"  matBadgePosition="before" matBadgeColor="accent">
+  <button style="float: right; margin-right:1%; margin-top:0.5%;" routerLink="/products" mat-raised-button
+    color="primary" matBadgePosition="before" matBadgeColor="accent">
     Products
-</button>
+  </button>
+
+ <br><br> <br> 
 
 
-<br>   <br> 
 
 
 
 
-<div class= "empty-cart" [hidden]="empty_message">
+  <div class="empty-cart" [hidden]="empty_message">
     Your cart is empty
-</div>
+  </div>
 
 
+  
+  <!--
 
-
-<br>
-<div class="table-responsive" [hidden]="HideCart">          
+ 
+  <div class="table-responsive" [hidden]="HideCart">
     <table class="table">
       <thead>
         <tr>
           <th>remove</th>
           <th style="text-align:left; padding-left:0; ">photo</th>
           <th>name</th>
-          
-          <th style="margin-left: 2%; padding-left:0; " >price</th>
-          <th style="padding-left:0; text-align:center;  " >quantity</th>
+
+          <th style="margin-left: 2%; padding-left:0; ">price</th>
+          <th style="padding-left:0; text-align:center;  ">quantity</th>
           <th>subtotal</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of items">
-          <td> <button mat-mini-fab color="warn" (click)="remove(item.product.id)" >X</button></td>
-          <td  style=" text-align: left; padding-left:0;"> <img src="{{item.product.image.imgurl}}"   style="height: 5%;"  ></td>
+          <td> <button mat-mini-fab color="warn" (click)="remove(item.product.id)">X</button></td>
+          <td style=" text-align: left; padding-left:0;"> <img src="{{item.product.image.imgurl}}" style="height: 5%;">
+          </td>
           <td>{{item.product.name.name}}</td>
-          
-          <td style=" text-align: left; padding-left:0;">${{item.product.price.price}}  </td>
-          <td  style="padding:0; text-align: center;"  > 
-            
-              <mat-form-field>
-                 
-                  <mat-select  value="D">
-                    
-                    <mat-option value="1" (click)="changed($event,1,item.product.id )">x1</mat-option>
-                    <mat-option value="2" (click)="changed($event,2,item.product.id)">x2</mat-option>
-                    <mat-option value="3" (click)="changed($event,3, item.product.id)">x3</mat-option>
-                    <mat-option value="4" (click)="changed($event,4, item.product.id)">x4</mat-option>
-                    <mat-option value="5" (click)="changed($event,5, item.product.id)">x5</mat-option>
-                    <mat-option value="D" hidden>x{{item.quantity}}</mat-option>
 
-                  </mat-select>
-                  
-              </mat-form-field>
-        </td>
+          <td style=" text-align: left; padding-left:0;">${{item.product.price.price}} </td>
+          <td style="padding:0; text-align: center;">
+
+            <mat-form-field>
+
+              <mat-select value="D">
+
+                <mat-option value="1" (click)="changed($event,1,item.product.id )">x1</mat-option>
+                <mat-option value="2" (click)="changed($event,2,item.product.id)">x2</mat-option>
+                <mat-option value="3" (click)="changed($event,3, item.product.id)">x3</mat-option>
+                <mat-option value="4" (click)="changed($event,4, item.product.id)">x4</mat-option>
+                <mat-option value="5" (click)="changed($event,5, item.product.id)">x5</mat-option>
+                <mat-option value="D" hidden>x{{item.quantity}}</mat-option>
+
+              </mat-select>
+
+            </mat-form-field>
+          </td>
           <td>${{item.product.price.price * item.quantity}}</td>
         </tr>
 
-        <tr  style="font-weight:600;">
-            <td colspan="5" align="right">Total:</td>
-            <td >${{total}}</td>
+        <tr style="font-weight:600;">
+          <td colspan="5" align="right">Total:</td>
+          <td>${{total}}</td>
         </tr>
 
       </tbody>
@@ -79,27 +82,112 @@
 
     <div style="text-align: center; font-size:1.5em; ">
 
-      
+
     </div>
- </div>
+  </div>
 
- <div id="Cbutton">
- <button mat-fab color="accent" [hidden]="HideButton" mat-button (click)="openDialog()">Pay</button>
-</div>
 
-<hr>
+ -->
 
+
+  
+
+
+  <span *ngFor="let item of items">
+    <mat-card class="card">
+      <mat-card-title>{{item.product.name.name}}</mat-card-title>
+      <mat-card-content>
+
+        <div class="row First_card">
+          <div style=" margin:auto;" class="col-sm-2.4"><img src="{{item.product.image.imgurl}}"  width="120" height="90">
+          </div>
+          <div class="col-sm-2.4 price"  style="margin:auto; text-align: center;" >${{item.product.price.price}}</div>
+          <div class="col-sm-2.4  "  style="margin:auto; text-align: center;" >
+            <span class="quantity">
+              Quantity:
+            </span>
+            <mat-form-field>
+
+              <mat-select value="D">
+
+                <mat-option value="1" (click)="changed($event,1,item.product.id )">x1</mat-option>
+                <mat-option value="2" (click)="changed($event,2,item.product.id)">x2</mat-option>
+                <mat-option value="3" (click)="changed($event,3, item.product.id)">x3</mat-option>
+                <mat-option value="4" (click)="changed($event,4, item.product.id)">x4</mat-option>
+                <mat-option value="5" (click)="changed($event,5, item.product.id)">x5</mat-option>
+                <mat-option value="D" hidden>x{{item.quantity}}</mat-option>
+
+              </mat-select>
+
+            </mat-form-field>
+              
+
+            
+
+          </div>
+
+          <div class="col-sm-2.4 price"  style="margin:auto; text-align: center;" > Subtotal: <span class="price">${{item.product.price.price * item.quantity}}</span> </div>
+
+          <div class="col-sm-2.4"  style="margin:auto; text-align: center;" ><button mat-mini-fab color="warn" (click)="remove(item.product.id)">X</button></div>
+
+        </div>
+
+      </mat-card-content>
+
+
+    </mat-card>
+
+  </span>
+
+
+
+  
 
  
 
 
- 
 
-</div>
 
- 
+<mat-card class="card card2" [hidden]="HideCart">
+  
+  <div class="row First_card" >
+    <div class="col-sm-6" style=" margin:0 auto; text-align: center;"  > 
+     
+      <div id="Cbutton">
+        <button mat-fab color="accent" [hidden]="HideButton" mat-button (click)="openDialog()">Pay</button>
+      </div>
+    </div>
 
+    <div class="col-sm-6 quantity"  style="margin:auto; text-align: center;">
+      Total: ${{total}}
+
+    </div>
 
     
+</div>
 
-   
+
+
+
+ 
+
+
+
+
+</mat-card>
+
+
+
+<mat-form-field>
+  <mat-label>Address << using the directive >></mat-label>
+  <input matInput
+       matGoogleMapsAutocomplete
+       [country]="de"
+       (onAutocompleteSelected)="onAutocompleteSelected($event)"
+       (onLocationSelected)="onLocationSelected($event)">
+</mat-form-field>
+
+
+</div>
+
+

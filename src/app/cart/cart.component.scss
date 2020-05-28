@@ -45,18 +45,77 @@ color: black;
  text-align: center;
 }
 
+.card{
+
+  margin-top: 20px;
+  max-width: 60%;
+
+  margin-left:auto;
+  margin-right:auto;
+
+}
 
 
 
+@media only screen and (max-width: 800px) {
+  .card {
+    max-width: 85%;
+  }
+}
+
+
+.responsive {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+
+}
+
+
+.First_card{
+  font-size: 1.3em;
+
+
+}
+
+::ng-deep .mat-select-panel {
+  max-height: none !important;
+}
+
+
+::ng-deep .mat-select-panel {
+  max-height: 400px!important;
+}
+
+.price{
+font-family: Palatino;
+font-weight: bold;
+font-size: 1.1em;
+
+}
+
+.quantity{
+  font-family: Palatino;
+  font-weight: bold;
+  font-size: 1.1em;
+
+}
 
 
 
+.total{
+
+  text-align: center;
+}
 
 
+.card2{
 
+  
+  width: 20%;
 
+  margin-left:auto;
+  margin-right:auto;
 
-
-
-
+}
 
