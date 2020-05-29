@@ -1,9 +1,9 @@
 import { Component,ElementRef, OnInit, Input, HostListener } from '@angular/core';
 import { Item } from '../item.entity';
 import {MatDialog} from '@angular/material/dialog';
-//import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
-
-
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+import {Location, Appearance, GermanAddress} from '@angular-material-extensions/google-maps-autocomplete'
+import PlaceResult = google.maps.places.PlaceResult;
 
 @Component({
   selector: 'app-cart',
@@ -18,10 +18,12 @@ export class CartComponent  implements OnInit {
   public total: number = 0;
 
   
+  
   HideCart;
   HideButton;
   empty_message;
 
+ 
 
   constructor(public dialog: MatDialog ) { }
 
@@ -42,6 +44,15 @@ export class CartComponent  implements OnInit {
 
 
   ngOnInit() {
+
+   
+
+
+
+
+
+
+
     
     let cart = JSON.parse(localStorage.getItem('cart'));
 
@@ -162,7 +173,11 @@ export class CartComponent  implements OnInit {
 	}
 
 
+
+  
 }
+
+
 
 @Component({
   selector: 'dialog-elements-example-dialog',
