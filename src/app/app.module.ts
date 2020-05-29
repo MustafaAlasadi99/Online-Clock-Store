@@ -20,14 +20,12 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { environment } from '../environments/environment';
 import {MatCardModule} from '@angular/material/card';
 
-import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 
-import { AgmCoreModule } from '@agm/core';
+
+
 
 @NgModule({
   declarations: [
@@ -55,12 +53,9 @@ import { AgmCoreModule } from '@agm/core';
     MatDialogModule,
     MatCardModule,
     MatListModule,
-    MatGoogleMapsAutocompleteModule,
     
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDbeGVNOdRpyfQP2TcP-gFl9gCmnfShlbk',
-      libraries: ['places']
-    })
+    
+   
     
   ],
 
