@@ -152,9 +152,15 @@
   
   <div class="row First_card" >
     <div class="col-sm-6" style=" margin:0 auto; text-align: center;"  > 
-     
-      <div id="Cbutton">
-        <button mat-fab color="accent" [hidden]="HideButton" mat-button (click)="openDialog()">Pay</button>
+    
+      
+
+
+
+    <div id="Cbutton">
+        <!--<button mat-fab color="accent" [hidden]="HideButton" mat-button (click)="openDialog()">Pay</button>  -->
+        <button mat-raised-button color="primary" [hidden]="HideButton" routerLink="/checkout" >Checkout</button>
+        
       </div>
     </div>
 
@@ -182,5 +188,11 @@
 
 
 </div>
+
+
+
+
+
+
 
 

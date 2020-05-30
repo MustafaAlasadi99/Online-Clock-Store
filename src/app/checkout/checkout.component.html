@@ -1,0 +1,120 @@
+<div class="navbar">
+
+    <h1>Checkout</h1>
+  
+  </div>
+  
+  
+  <div id="wrapper">
+  
+  
+  
+    <button style="float: right; margin-right:1%; margin-top:0.5%;" routerLink="/products" mat-raised-button
+      color="primary" matBadgePosition="before" matBadgeColor="accent">
+      Products
+    </button>
+
+
+
+<br><br><br>
+
+
+    <mat-card class="card">
+        <mat-card-title>Shipping Infomation</mat-card-title>
+        
+    <mat-card-content>
+
+
+            <div class="row First_card" >
+
+                <div class="col-sm-4" style="margin:auto; text-align: center;  "  >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Contact Name</mat-label>
+                        <input matInput placeholder="">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4" style="margin:auto; text-align: center;" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput placeholder="">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4" style="margin:auto; text-align: center;" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email Address </mat-label>
+                        <input type="email" ngModel email matInput placeholder="">
+                    </mat-form-field>
+                </div>
+
+            </div>
+
+            
+
+            <div class="row" >
+
+                <div class="col-sm-6" style="margin:auto; text-align: center;  "  >
+                    <mat-form-field appearance="outline" class="address">
+                        <mat-label>Address</mat-label>
+                        <input matInput placeholder="" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6" style="margin:auto; text-align: center;" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Suite</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+
+
+            </div>
+
+            <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+                <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+                  (dragEnd)="markerDragEnd($event)"></agm-marker>
+              </agm-map>
+
+
+
+
+          
+
+    </mat-card-content>
+    
+    
+    
+    
+    </mat-card>
+
+
+
+    <mat-card class="card card2" [hidden]="HideCart">
+  
+        <div class="row First_card" >
+
+
+            <div class="col-sm-6 quantity"  style="margin:auto; text-align: center; font-weight: bold;">
+                Total: ${{total}}
+          
+              </div>
+
+
+
+          <div class="col-sm-6" style=" margin:0 auto; text-align: center;"  > 
+    
+          <div id="Cbutton">
+              <!--<button mat-fab color="accent" [hidden]="HideButton" mat-button (click)="openDialog()">Pay</button>  -->
+              <button mat-raised-button color="primary" (click)="openDialog()" [hidden]="HideButton" routerLink="/checkout" >Enter Payment Information</button>
+              
+            </div>
+          </div>
+      
+
+      
+          
+      </div>
+      
+      
+      
+
+      </mat-card>
+  
